@@ -1,0 +1,6 @@
+Using this app a user should be able to:
+- add items to a cart
+- set the quantity of an item
+- show all items in cart
+- remove items in cart
+- calculate the total of the items
