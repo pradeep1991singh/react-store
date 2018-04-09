@@ -25,7 +25,7 @@ export default class CheckoutList extends Component<CheckoutProps, void> {
     const totalItems: number = items.length
     let totalPrice: number = 0
     items.forEach(item => {
-      totalPrice += item.price
+      totalPrice += item.price * item.quantity
     })
 
     return (
@@ -35,7 +35,8 @@ export default class CheckoutList extends Component<CheckoutProps, void> {
             key="legend"
             className="list-group-item d-flex justify-content-between align-items-center legend"
           >
-            Product Name
+            <span>Product Name</span>
+            <span>Quantity</span>
             <span>Price</span>
             <span>Operation</span>
           </li>
@@ -44,9 +45,10 @@ export default class CheckoutList extends Component<CheckoutProps, void> {
               key={product.product_id}
               className="list-group-item d-flex justify-content-between align-items-center"
             >
-              {product.product_name}
+              <span>{product.product_name}</span>
+              <span>{product.quantity}</span>
               <span className="badge badge-primary badge-pill">
-                ${product.price}
+                ${product.price.toFixed(2)}
               </span>
               <img
                 src={trash}
